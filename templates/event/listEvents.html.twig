@@ -1,0 +1,20 @@
+<table>
+    <tr>
+        <th>Date debut</th>
+        <th>Date fin</th>
+        <th>Lieu</th>
+        <th>Nom</th>
+        <th>Category</th>
+    </tr>
+    {% for event in listEvents %}
+        <tr>
+            <td>{{ event.dateD|date('d/m/Y') }}</td>
+            <td>{{ event.dateF|date('d/m/Y') }}</td>
+            <td>{{ event.lieu }}</td>
+            <td>{{ event.nom }}</td>
+            <td>{{ event.category.nom }}</td>
+            <td><a href="{{ path('event_delete', {'id' : event.id}) }}">Delete event</a></td>
+            <td><a href="{{ path('event_update', {'id' : event.id}) }}">Update event</a></td>
+        </tr>
+    {% endfor %}
+</table>
